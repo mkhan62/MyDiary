@@ -2,7 +2,7 @@ from django import forms
 from diary import Chapter, Comment
 
 
-class PostForm(forms.ModelForm):
+class ChapterForm(forms.ModelForm):
 
     class Meta():
         model = Chapter
