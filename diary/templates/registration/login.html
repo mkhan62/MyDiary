@@ -1,0 +1,23 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<div class="jumbotron" align="center">
+  <h2>Please Login: </h2>
+  <h3>(Must be signed up, check with admin)</h3>
+
+
+  {% if form.errors %}
+  <p>Username or password is incorrect, please try again!</p>
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {% form.as_p %}
+    <input type="submit" name="btn btn-primary" value="Login">
+    <input type="hidden" name="next" value="{{next}}">
+
+  </form>
+
+</div>
+
+{% endblock %}
