@@ -1,0 +1,18 @@
+{% extends "diary/base.html" %}
+{% block content %}
+
+<div class="centerstage">
+  {% for chapter in chapter_list %}
+  <div class="chapter">
+    <h1><a href="{% url 'chapter_detail' pk=chapter.pk %}">{{chapter.title}}</a> </h1>
+    <div class="date">
+      <p>Published on: {{chapter.published_date|date"D M Y"}}</p>
+    </div>
+    <a href="{% url 'chapter_detail' pk=chapter.pk %}">Comments: {{ chapter.approve_comments.count }}</a>
+  </div>
+
+  {% endfor %}
+</div>
+
+
+{% endblock %}
