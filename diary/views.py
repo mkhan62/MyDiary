@@ -76,11 +76,11 @@ def add_comment_to_post(request, pk):
 
     else:
         form = CommentForm()
-    return render(request, 'chapter/comment_form.html', {'form': form} )
+    return render(request, 'diary/comment_form.html', {'form': form} )
 
 
 @login_required
-def commeent_approve(request, pk):
+def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
     return redirect('chapter_detail', pk=comment.chapter.pk)

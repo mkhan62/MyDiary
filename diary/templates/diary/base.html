@@ -2,6 +2,7 @@
 {% load staticfiles %}
 <html>
   <head>
+    <title>MyDiary</title>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -19,14 +20,23 @@
 
             {# Fonts#}
             <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+            <script type="text/javascript" src="{% static 'js/chapter.js' %}"></script>
+
+            <link href='https://fonts.googleapis.com/css?family=Exo:400,900' rel='stylesheet' type='text/css'>
 
 
   </head>
-  <body class="loader bg-img">
-    <nav class="navbar navbar-default techfont custom-navbar">
+  <body class="loader wrapper">
+    <div class="message">
+    <h1>Think of life as if it were your diary!</h1>
+    <h3>Divide your story into chapters -- atleast 2 and at most 7. Title each chapter a name and briefly talk about them.</h3>
+    <h3>Write about your peak experiences, earliest memory, turning points, life challenges and keep them safe in your diary.</h3>
+    <h3>Here's to all the chapters of your life and for more to open!</h3>
+    </div>
+    <nav class="navbar navbar-default techfont custom-navbar navbar-inverse">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li><a class="navbar-brand bigbrand" href="{% url 'chapter_list' %}">MyDiary</a></li>
+          <li><a class="navbar-brand" href="{% url 'chapter_list' %}">MyDiary</a></li>
           <li><a class="navbar-link" href="{% url 'summary' %}">Summary</a> </li>
           <li><a class="navabr-link" href="https://github.com/mkhan62">Github</a></li>
         </ul>
@@ -66,7 +76,6 @@
       </div>
 
     </div>
-
 
   </body>
 </html>

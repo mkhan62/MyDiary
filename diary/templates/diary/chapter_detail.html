@@ -24,7 +24,7 @@
 {% endif %}
 
 <hr>
-<a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=chapter.pk %}"></a>
+<a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=chapter.pk %}">Add Comment</a>
 
 <div class="container">
   {% for comment in chapter.comments.all %}
