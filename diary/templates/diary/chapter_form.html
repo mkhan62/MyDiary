@@ -1,6 +1,11 @@
 {% extends "diary/base.html" %}
 {% block content %}
 
-
-
+<h1>New Chapter</h1>
+<form class="chapter-form" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
+<script type="text/javascript">var editor = new MediumEditor('.editable');</script>
 {% endblock %}

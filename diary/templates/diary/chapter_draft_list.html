@@ -1,48 +1,11 @@
 {% extends "diary/base.html" %}
 {% block content %}
+  {% for chapter in chapters %}
+    <div class="chapter">
+      <p class="date">Created: {{chapter.create_date|date:'d-m-y'}}</p>
+      <h1><a href="{% url 'chapter_detail' pk=chapter.pk %}">{{chapter.title}}</a></h1>
+      <p>{{chapter.text|truncatechars:200} </p>
+    </div>
 
-
-<h1 class="posttitle loader">{{chapter.title}}</h1>
-{% if chapter.published_date %}
-<div class="date postdate">
-  {{chapter.published_date}}
-</div>
-{% else %}
-<a class="btn btn-default"href="{% url 'chapter_publish' pk=chapter.pk %}"></a>
-{% endif %}
-<p class="postcontent">{{chapter.title|safe|linebreaksbr}}</p>
-
-{% if user.is_authenticated %}
-  <a class="btn btn-primary" href="{% url 'chapter_update' pk=chapter.pk %}">
-    <span class="glyphicon glyphicon-pencil"></span>
-  </a>
-{% endif %}
-{% if user.is_authenticated %}
-  <a class="btn btn-primary" href="{% url 'chapter_delete' pk=chapter.pk %}">
-    <span class="glyphicon glyphicon-remove"></span>
-  </a>
-{% endif %}
-
-<hr>
-<a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=chapter.pk %}"></a>
-
-<div class="container">
-  {% for comment in chapter.comments.all %}
-  <br>
-  {% if user.is_authenticated or comment.approved_comment %}
-  {{comment.create_date}}
-    {% if not comment.approved_comment %}
-    <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
-      <span class="glyphicon glyphicon-remove"></span>
-    </a><a class="btn btn-primary" href="{% url 'comment_approve' pk=chapter.pk %}">
-      <span class="glyphicon glyphicon-ok"></span>
-    </a>
-    {% endif %}
-    <p>{{comment.text|safe|linebreaks}}</p>
-    <p>Posted by: {{comment.author}}</p>
-  {% endif %}
-  {% empty
-    <p>No Comments</p>
-  {% endfor %}
-</div>
+    {% endfor %}
 {% endblock %}
