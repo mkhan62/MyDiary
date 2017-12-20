@@ -1,12 +1,12 @@
 from django import forms
-from diary import Chapter, Comment
+from diary.models import Chapter, Comment
 
 
 class ChapterForm(forms.ModelForm):
 
     class Meta():
         model = Chapter
-        fields = ('title', 'text')
+        fields = ('author', 'title', 'text')
 
     widgets = {
         'title': forms.TextInput(attrs={'class': 'textinputclass'}),

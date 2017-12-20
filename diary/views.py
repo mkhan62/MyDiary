@@ -9,14 +9,14 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 class SummaryView(TemplateView):
-    template_name = summary.html
+    template_name = 'summary.html'
 
 
 class ChapterListView(ListView):
     model = Chapter
 
     def get_queryset(self):
-        return Chapter.objects.filter(published_date__lte=timezone.now()).order_by('-published_date'))
+        return Chapter.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 
 class ChapterDetailView(DetailView):

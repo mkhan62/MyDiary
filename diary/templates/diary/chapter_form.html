@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>New Chapter</h1>
-<form class="chapter-form" method="post">
+<form class="chapter-form" method="POST">
   {% csrf_token %}
   {{form.as_p}}
   <button type="submit" class="save btn btn-default">Save</button>

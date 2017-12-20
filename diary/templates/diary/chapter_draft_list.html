@@ -2,9 +2,9 @@
 {% block content %}
   {% for chapter in chapters %}
     <div class="chapter">
-      <p class="date">Created: {{chapter.create_date|date:'d-m-y'}}</p>
-      <h1><a href="{% url 'chapter_detail' pk=chapter.pk %}">{{chapter.title}}</a></h1>
-      <p>{{chapter.text|truncatechars:200} </p>
+      <p class="date">created: {{ chapter.create_date|date:'d-m-Y' }}</p>
+              <h1><a href="{% url 'chapter_detail' pk=chapter.pk %}">{{ chapter.title }}</a></h1>
+              <p>{{ chapter.text|truncatechars:200 }}</p>
     </div>
 
     {% endfor %}

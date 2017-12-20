@@ -6,7 +6,7 @@
   <div class="chapter">
     <h1><a href="{% url 'chapter_detail' pk=chapter.pk %}">{{chapter.title}}</a> </h1>
     <div class="date">
-      <p>Published on: {{chapter.published_date|date"D M Y"}}</p>
+      <p>Published on: {{chapter.published_date}}</p>
     </div>
     <a href="{% url 'chapter_detail' pk=chapter.pk %}">Comments: {{ chapter.approve_comments.count }}</a>
   </div>
